@@ -28,10 +28,10 @@ export function LandingPage (){
                 <section id="products" className="snap-start md:h-screen w-full bg-blue-50">
                   <AquariumFishSection />
                 </section>
-                <section id="contact" className="snap-start md:h-screen w-full">
+                <section className="snap-start md:h-screen w-full">
                   <HomeMade />
                 </section>
-                <section className="snap-start md:h-screen w-full">
+                <section id="contact"  className="snap-start md:h-screen w-full">
                   <Contact />
                 </section>
                 <div className="snap-start w-full">
