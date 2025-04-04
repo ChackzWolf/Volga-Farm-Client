@@ -35,6 +35,7 @@ export function Footer(){
                 <li><a href="#aquarium" className="hover:text-green-200">Aquarium Fish</a></li>
                 <li><a href="#products" className="hover:text-green-200">Products</a></li>
                 <li><a href="#contact" className="hover:text-green-200">Contact</a></li>
+                <li><a href="/admin" className="hover:text-green-200">Admin</a></li>
               </ul>
             </div>
             

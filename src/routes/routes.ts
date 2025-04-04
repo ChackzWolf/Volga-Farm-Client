@@ -3,6 +3,7 @@ export const  ROUTES = {
     plantCollections :'/plant-collections',
     admin: {
         Login: '/admin/login',
-        Dashboard: '/admin/dashboard',
+        dashboard: '/admin',
+        addPlant: '/admin/add-plant',
     }
 }

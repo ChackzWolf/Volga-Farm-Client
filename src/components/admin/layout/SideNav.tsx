@@ -1,15 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { data, content } from "../Data/navData";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { RxDashboard } from "react-icons/rx";
 import { ROUTES } from "../../../routes/routes";
 
-function SideNav() {
+export const SideNav: React.FC = () =>  {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const toggleNav = () => {
+  const toggleNav = () => {  
     setIsOpen(!isOpen);
   };
 
@@ -43,13 +43,13 @@ function SideNav() {
         <div
           className={
             location.pathname === "/admin"
-              ? "transition-all flex bg-[#7C24F0] text-white text-sm font-semibold w-full rounded-lg"
+              ? "transition-all flex bg-green-800  text-white text-sm font-semibold w-full rounded-lg"
               : "transition-all flex bg-accent  hover:bg-[#7c24f018] text-sm font-semibold w-full rounded-lg"
           }
         >
           <button key="/admin" onClick={()=> {
             setIsOpen(false)
-            navigate(ROUTES.admin.dashBoard)
+            navigate(ROUTES.admin.dashboard)
           }} className="flex items-center h-full w-full p-2">
             <RxDashboard className="m-2" />
             Dashboard
@@ -64,7 +64,7 @@ function SideNav() {
               key={links.path}
               className={
                 location.pathname === links.path
-                  ? "transition-all flex bg-[#7C24F0] text-white text-center text-sm font-semibold w-full rounded-lg"
+                  ? "transition-all flex bg-green-800  text-white text-center text-sm font-semibold w-full rounded-lg"
                   : "transition-all flex   hover:bg-[#7c24f018] text-center text-sm font-semibold w-full rounded-lg"
               }
             >
@@ -106,4 +106,3 @@ function SideNav() {
   );
 }
 
-export default SideNav;

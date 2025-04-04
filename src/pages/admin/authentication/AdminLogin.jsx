@@ -49,14 +49,14 @@ function LoginAdmin() {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
+            
             setIsLoading(true);
-            const response = await axios.post(adminEndpoints.login, values);
-            console.log(response.data);
-            const { success,  token, message } = response.data;
+
+            const { success,  token, message } = await  adminLogin(values)
             
             if (success) {
                 setCookie("adminAccessToken", token, 1);
-                navigate(ROUTES.admin.Dashboard);
+                navigate(ROUTES.admin.dashboard);
             } else {
                 setMessage(message);
             }
@@ -101,7 +101,7 @@ function LoginAdmin() {
                 )}
 
                 {/* Login Form */}
-                <div className="bg-[#FCF6FF] p-16 shadow-lg w-full md:w-1/2 rounded-lg flex flex-col justify-center">
+                <div className="bg-green-50 p-16 shadow-lg w-full md:w-1/2 rounded-lg flex flex-col justify-center">
                     <h2 className="text-3xl mb-5 mt-20 text-center font-bold">Admin Login</h2>
                     {message && <h1 className="text-red-800 text-center">{message}</h1>}
 
@@ -120,7 +120,7 @@ function LoginAdmin() {
                                         <Field
                                             type="email"
                                             name="email"
-                                            className="w-full h-10 p-2 px-4 shadow-lg rounded-lg hover:border-[#DDB3FF] focus:border-[#DDB3FF] focus-visible:outline-none"
+                                            className="w-full h-10 p-2 px-4 shadow-lg rounded-lg hover:border-green-100 focus:border-green-200 focus-visible:outline-none"
                                             placeholder="Enter your email here."
                                         />
                                         <ErrorMessage name="email" component="div" className="text-red-500 text-xs mt-1" />
@@ -129,7 +129,7 @@ function LoginAdmin() {
                                     {/* Password Field */}
                                     <div className="flex w-full justify-between">
                                         <p className="text-base mb-2 font-normal">Password</p>
-                                        <NavLink to="/admin/auth/forgot-password" className="text-sky-700 text-base">
+                                        <NavLink to="/admin/auth/forgot-password" className="text-green-800 text-base">
                                             Forgot?
                                         </NavLink>
                                     </div>
@@ -138,7 +138,7 @@ function LoginAdmin() {
                                         <Field
                                             type={showPassword ? "text" : "password"}
                                             name="password"
-                                            className="w-full h-10 p-2 px-4 shadow-lg rounded-lg hover:border-[#DDB3FF] focus:border-[#DDB3FF] focus-visible:outline-none"
+                                            className="w-full h-10 p-2 px-4 shadow-lg rounded-lg hover:border-green-100 focus:border-green-200 focus-visible:outline-none"
                                             placeholder="Enter your password here."
                                         />
                                         {/* <EyeCheckbox onClick={() => setShowPassword(!showPassword)} /> */}
@@ -148,7 +148,7 @@ function LoginAdmin() {
                                     {/* Login Button */}
                                     <button
                                         type="submit"
-                                        className="w-full px-4 py-3 text-white shadow-lg rounded-lg font-semibold bg-[#7C24F0] transition-all"
+                                        className="w-full px-4 py-3 text-white shadow-lg rounded-lg font-semibold bg-green-800 transition-all"
                                         disabled={isSubmitting}
                                     >
                                         Login
